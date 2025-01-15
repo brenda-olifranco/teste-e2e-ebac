@@ -46,6 +46,9 @@ Após abrir o dashboard, selecione um dos navegadores (De preferencia Electron) 
 Fábio & José Ernesto
 Qualidade de software
 
+mudando o readme :)
+
+
 
 
 
