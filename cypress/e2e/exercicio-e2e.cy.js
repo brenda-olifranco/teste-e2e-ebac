@@ -1,4 +1,6 @@
-/// <reference types="cypress" />
+///<reference types = "cypress"/>
+
+import produtosPage from "../support/page_objects/produtos.page";
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
   /*  Como cliente 
@@ -10,13 +12,32 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
       E validando minha compra ao final */
 
   beforeEach(() => {
-      cy.visit('/')
+      produtosPage.visitarUrl()
   });
 
-  it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
+  it('Deve buscar produto da lista', () => {
       //TODO: Coloque todo o fluxo de teste aqui, considerando as boas práticas e otimizações
+        produtosPage.buscarProdutoLista('Abominable Hoodie')
+        cy.get('.product_title').should('exist')
       
   });
 
+  it('Deve buscar um produto com sucesso', () => {
+    produtosPage.buscarProduto('Ajax Full-Zip Sweatshirt')
+    cy.get('.product_title').should('exist')
+  });
+
+  it('Deve visitar a pag do produto', () => {
+    produtosPage.visitarProduto('Abominable-Hoodie')
+    cy.get('.product_title').should('exist')
+  });
+
+  it('Deve selecionar produto ao carrinho', () => {
+    produtosPage.buscarProduto('Abominable Hoodie')
+    produtosPage.adicionarCarrinho('L', 'Green', 4)
+
+    cy.get('.woocommerce-message').should('exist')
+    
+  });
 
 })
