@@ -1,0 +1,22 @@
+[
+    {
+        "nomeProduto": "Abominable Hoodie",
+        "tamanho": "m",
+        "cor": "Green",
+        "quantidade": 3
+    },
+
+    {
+        "nomeProduto": "Hollister Backyard Sweatshirt",
+        "tamanho": "M",
+        "cor": "Green",
+        "quantidade": 1
+    },
+
+    {
+        "nomeProduto": "Abominable Hoodie",
+        "tamanho": "XL",
+        "cor": "Blue",
+        "quantidade": 5
+    }
+]
