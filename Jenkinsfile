@@ -1,28 +1,17 @@
 pipeline {
     agent any
+
     stages {
-        stage('Clonar o repositório') {
+        stage('Setup') {
             steps {
                 git branch: 'main', url: 'https://github.com/brenda-olifranco/teste-e2e-ebac'
+                bat 'npm install'
             }
         }
-
-        stage('Instalar dependências') {
+        stage('Test') {
             steps {
-                powershell '''
-                    # Instalar as dependências com npm
-                    npm install
-                '''
-            }
-        }
-
-        stage('Executar Testes') {
-            steps {
-                powershell '''
-                    # Executar os testes, desabilitando cores
-                    $env:NO_COLOR = "1"
-                    npm run cy:run
-                '''
+               bat '''set NO_COLOR=1
+npm test'''
             }
         }
     }
